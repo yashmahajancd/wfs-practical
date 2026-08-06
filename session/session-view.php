@@ -1,3 +1,16 @@
+<?php
+
+session_start();
+
+if(isset($_POST['logoutBtn']))
+{
+    session_destroy();
+    header("location:session-login.php");
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -8,12 +21,12 @@
 </head>
 
 <body>
-    <form action="logout.php" method="POST">
+    <form action="" method="POST">
         <?php
 
         if (isset($_SESSION['username']))
         {
-            echo "Welcome" . $_SESSION['username'];
+            echo "Welcome " . $_SESSION['username'];
         }
 
         ?> <br><br>
