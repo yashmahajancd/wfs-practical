@@ -11,7 +11,8 @@
     <form action="logout.php" method="POST">
         <?php
 
-        if (isset($_SESSION['username'])) {
+        if (isset($_SESSION['username']))
+        {
             echo "Welcome" . $_SESSION['username'];
         }
 
