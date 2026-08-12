@@ -2,7 +2,7 @@
 
 A collection of **Web Framework and Services (WFS)** practical programs completed during college lab sessions.
 
-Each practical is organized into separate folders based on its topic, making the repository clean, structured, and easy to navigate throughout the semester.
+Each practical is organized into a separate topic-wise folder to keep the repository clean, structured, and easy to navigate throughout the semester.
 
 ---
 
@@ -11,20 +11,16 @@ Each practical is organized into separate folders based on its topic, making the
 ```text
 wfs-practical/
 │
-├── session/
-│   ├── login.php
-│   ├── session-login.php
-│   └── session-view.php
+├── README.md
 │
-├── cookies/
-├── forms/
-├── file-upload/
-├── database/
-├── authentication/
-├── validation/
-├── api/
-├── ajax/
-└── ...
+├── cookie/
+│   ├── login.php
+│   └── view.php
+│
+└── session/
+    ├── login.php
+    ├── session-login.php
+    └── session-view.php
 ```
 
 > New topic folders will be added as more WFS practicals are completed.
@@ -36,7 +32,7 @@ wfs-practical/
 | Topic                 |    Status   |
 | --------------------- | :---------: |
 | Session Management    | ✅ Completed |
-| Cookies               |  ⏳ Upcoming |
+| Cookie Management     | ✅ Completed |
 | Form Handling         |  ⏳ Upcoming |
 | File Upload           |  ⏳ Upcoming |
 | Database Connectivity |  ⏳ Upcoming |
@@ -48,24 +44,45 @@ wfs-practical/
 
 ---
 
-## 📁 Current Practical
+## 📁 Practicals
 
-### ✅ Session Management
+### ✅ 1. Session Management
 
-Files included:
+**Folder:** `session/`
+
+**Files:**
 
 * `login.php`
 * `session-login.php`
 * `session-view.php`
 
-**Concepts Covered**
+**Concepts Practiced:**
 
-* Creating Sessions
-* Storing Session Variables
-* Retrieving Session Data
-* Basic Login Using PHP Sessions
-* Session Validation
-* Session-Based User Authentication
+* Creating PHP sessions
+* Storing session variables
+* Retrieving session data
+* Session-based login
+* Checking session data
+* Managing user session information
+
+---
+
+### ✅ 2. Cookie Management
+
+**Folder:** `cookie/`
+
+**Files:**
+
+* `login.php`
+* `view.php`
+
+**Concepts Practiced:**
+
+* Creating cookies
+* Storing data in cookies
+* Retrieving cookie values
+* Viewing stored cookie information
+* Basic cookie-based data handling
 
 ---
 
@@ -83,20 +100,33 @@ Files included:
 ## ▶️ How to Run
 
 1. Install **XAMPP**.
-2. Clone this repository or copy it into:
+2. Clone this repository or place the project inside:
 
 ```text
 C:\xampp\htdocs\
 ```
 
-3. Start **Apache** (and **MySQL** if required).
-4. Open your browser:
+3. Start **Apache** from the XAMPP Control Panel.
+4. Start **MySQL** if the practical requires database connectivity.
+5. Open the project in your browser:
 
 ```text
 http://localhost/wfs-practical/
 ```
 
-5. Open the required topic folder to run the practical.
+6. Navigate to the required practical folder.
+
+For example:
+
+```text
+http://localhost/wfs-practical/session/
+```
+
+or
+
+```text
+http://localhost/wfs-practical/cookie/
+```
 
 ---
 
@@ -104,9 +134,10 @@ http://localhost/wfs-practical/
 
 This repository is maintained for:
 
-* College laboratory practicals
-* Learning Web Framework and Services concepts
-* PHP practice
+* College WFS laboratory practicals
+* Practicing PHP concepts
+* Understanding web frameworks and services
+* Maintaining practical work topic-wise
 * Revision and future reference
 * Tracking practical progress throughout the semester
 
@@ -115,3 +146,5 @@ This repository is maintained for:
 ## 👨‍💻 Author
 
 **Yash Mahajan**
+
+BCA Student
