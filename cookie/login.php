@@ -11,7 +11,7 @@
     <center>
         <h2 style="background-color: gray; color: white">FORM</h2>
 
-        <form style="background-color: #d4d4d4; padding: 20px 0px;" action="" method="POST">
+        <form style="background-color: #d4d4d4; padding: 20px 0px;" action="view.php" method="POST">
 
             <label for="username">Username: </label>
             <input
