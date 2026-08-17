@@ -44,4 +44,26 @@ elseif(!preg_match('/^(0[1-9]|[12][0-9]|3[01])[-\/\.](0[1-9]|1[012])[-\/\.](19|2
     echo "Date must be in DD-MM-YYYY format! <br>";
 }
 
+if(empty($contact))
+{
+    echo "Mobile number can't be empty! <br>";
+}
+elseif(!preg_match('/^[0-9]{10}$/', $contact))
+{
+    echo "Mobile number must be in 10 digit! <br>";
+}
+
+if(isset($_POST['submitBtn']))
+{
+    echo "Name : $name" . "<br>";
+    echo "Address : $address" . "<br>";
+    echo "City : $city" . "<br>";
+    echo "Gender : $gender" . "<br>";
+    echo "Hobbies : $hobbies" . "<br>";
+    echo "DOB : $dob" . "<br>";
+    echo "Contact : $contact" . "<br>";
+    echo "Email : $email" . "<br><br>";
+    echo "Record Inserted Successfully.";
+}
+
 ?>
