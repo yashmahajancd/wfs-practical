@@ -55,6 +55,26 @@
                     </td>
                 </tr>
 
+                <tr style="text-align: center;">
+                    <td>DOB: </td>
+                    <td><input style="width: 97%" type="text" name="date" required></td>
+                </tr>
+
+                <tr style="text-align: center;">
+                    <td>Contact: </td>
+                    <td><input style="width: 97%" type="text" name="contact" required></td>
+                </tr>
+
+                <tr style="text-align: center;">
+                    <td>Email: </td>
+                    <td><input style="width: 97%" type="email" name="email" required></td>
+                </tr>
+
+                <tr style="text-align: center;">
+                    <td>Password: </td>
+                    <td><input style="width: 97%" type="password" name="" required></td>
+                </tr>
+
             </table>
         </form>
     </center>
