@@ -17,6 +17,12 @@ wfs-practical/
 │   ├── login.php
 │   └── view.php
 │
+├── file/
+│   ├── file.php
+│   │
+│   └── upload/
+│       └── File Upload_Download.pdf
+│
 └── session/
     ├── login.php
     ├── session-login.php
@@ -29,18 +35,18 @@ wfs-practical/
 
 ## 📚 Topics Covered
 
-| Topic                 |    Status   |
-| --------------------- | :---------: |
-| Session Management    | ✅ Completed |
-| Cookie Management     | ✅ Completed |
-| Form Handling         |  ⏳ Upcoming |
-| File Upload           |  ⏳ Upcoming |
-| Database Connectivity |  ⏳ Upcoming |
-| Authentication        |  ⏳ Upcoming |
-| Validation            |  ⏳ Upcoming |
-| AJAX                  |  ⏳ Upcoming |
-| REST API              |  ⏳ Upcoming |
-| Other WFS Practicals  |  ⏳ Upcoming |
+| Topic                                  |    Status   |
+| -------------------------------------- | :---------: |
+| Session Management                     | ✅ Completed |
+| Cookie Management                      | ✅ Completed |
+| File Handling / File Upload & Download | ✅ Completed |
+| Form Handling                          |  ⏳ Upcoming |
+| Database Connectivity                  |  ⏳ Upcoming |
+| Authentication                         |  ⏳ Upcoming |
+| Validation                             |  ⏳ Upcoming |
+| AJAX                                   |  ⏳ Upcoming |
+| REST API                               |  ⏳ Upcoming |
+| Other WFS Practicals                   |  ⏳ Upcoming |
 
 ---
 
@@ -86,6 +92,26 @@ wfs-practical/
 
 ---
 
+### ✅ 3. File Handling / File Upload & Download
+
+**Folder:** `file/`
+
+**Files:**
+
+* `file.php`
+* `upload/File Upload_Download.pdf`
+
+**Concepts Practiced:**
+
+* PHP file handling
+* File creation and manipulation
+* File upload
+* File download
+* Working with uploaded files
+* Managing files using PHP
+
+---
+
 ## 🛠️ Tech Stack
 
 * PHP
@@ -122,10 +148,12 @@ For example:
 http://localhost/wfs-practical/session/
 ```
 
-or
-
 ```text
 http://localhost/wfs-practical/cookie/
+```
+
+```text
+http://localhost/wfs-practical/file/
 ```
 
 ---
@@ -136,7 +164,7 @@ This repository is maintained for:
 
 * College WFS laboratory practicals
 * Practicing PHP concepts
-* Understanding web frameworks and services
+* Understanding Web Framework and Services concepts
 * Maintaining practical work topic-wise
 * Revision and future reference
 * Tracking practical progress throughout the semester
