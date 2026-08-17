@@ -7,14 +7,14 @@
     <title>Student Registration Form</title>
 </head>
 
-<body>
+<body style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
     <center>
         <!-- <marquee behavior="alternate" direction="right"> -->
-        <h2>---- STUDENT REGISTRATION FORM ----</h2>
+        <h3 style="background-color: #cacaca; padding: 10px 0px">--- Student Registration Form ---</h3>
         <!-- </marquee> -->
 
         <form action="valid.php" method="POST" name="form1">
-            <table style="color: white" border="1" bgcolor="gray" cellspacing="0" cellpadding="10px">
+            <table border="1" bgcolor="#cacaca" cellspacing="0" cellpadding="10px">
 
                 <tr style="text-align: center;">
                     <td>Enter Name: </td>
@@ -35,6 +35,23 @@
                             <option value="Valsad">Valsad</option>
                             <option value="Navsari">Navsari</option>
                         </select>
+                    </td>
+                </tr>
+
+                <tr style="text-align: center;">
+                    <td>Gender: </td>
+                    <td>
+                        <input type="radio" name="gender" value="Male">Male
+                        <input type="radio" name="gender" value="Female">Female
+                    </td>
+                </tr>
+
+                <tr style="text-align: center;">
+                    <td>Hobbies: </td>
+                    <td>
+                        <input type="checkbox" name="reading" value="Reading">Reading
+                        <input type="checkbox" name="playing" value="Playing">Playing
+                        <input type="checkbox" name="dancing" value="Dancing">Dancing
                     </td>
                 </tr>
 
