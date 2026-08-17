@@ -75,6 +75,13 @@
                     <td><input style="width: 97%" type="password" name="" required></td>
                 </tr>
 
+                <tr style="text-align: center;">
+                    <td colspan="2">
+                        <button style="padding: 3px 10px; cursor: pointer;" type="submit" name="submitBtn">Submit</button>
+                        <button style="padding: 3px 10px; cursor: pointer;" type="submit" name="resetBtn">Reset</button>
+                    </td>
+                </tr>
+
             </table>
         </form>
     </center>
