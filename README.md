@@ -23,6 +23,10 @@ wfs-practical/
 │   └── upload/
 │       └── File Upload_Download.pdf
 │
+├── form/
+│   ├── index.php
+│   └── valid.php
+│
 └── session/
     ├── login.php
     ├── session-login.php
@@ -40,10 +44,9 @@ wfs-practical/
 | Session Management                     | ✅ Completed |
 | Cookie Management                      | ✅ Completed |
 | File Handling / File Upload & Download | ✅ Completed |
-| Form Handling                          |  ⏳ Upcoming |
+| Form Handling & Validation             | ✅ Completed |
 | Database Connectivity                  |  ⏳ Upcoming |
 | Authentication                         |  ⏳ Upcoming |
-| Validation                             |  ⏳ Upcoming |
 | AJAX                                   |  ⏳ Upcoming |
 | REST API                               |  ⏳ Upcoming |
 | Other WFS Practicals                   |  ⏳ Upcoming |
@@ -112,6 +115,26 @@ wfs-practical/
 
 ---
 
+### ✅ 4. Form Handling & Validation
+
+**Folder:** `form/`
+
+**Files:**
+
+* `index.php`
+* `valid.php`
+
+**Concepts Practiced:**
+
+* Creating HTML/PHP forms
+* Receiving form data
+* Processing submitted data
+* Form validation
+* Handling user input
+* Basic server-side validation
+
+---
+
 ## 🛠️ Tech Stack
 
 * PHP
@@ -154,6 +177,10 @@ http://localhost/wfs-practical/cookie/
 
 ```text
 http://localhost/wfs-practical/file/
+```
+
+```text
+http://localhost/wfs-practical/form/
 ```
 
 ---
