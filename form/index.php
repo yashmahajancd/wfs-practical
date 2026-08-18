@@ -18,7 +18,7 @@
 
                 <tr style="text-align: center;">
                     <td>Enter Name: </td>
-                    <td><input style="width: 97%" type="text" name="txtname" required></td>
+                    <td><input style="width: 97%;" type="text" name="txtname" required></td>
                 </tr>
 
                 <tr style="text-align: center;">
@@ -41,7 +41,7 @@
                 <tr style="text-align: center;">
                     <td>Gender: </td>
                     <td>
-                        <input type="radio" name="gender" value="Male">Male
+                        <input type="radio" name="gender" value="Male" required>Male
                         <input type="radio" name="gender" value="Female">Female
                     </td>
                 </tr>
@@ -49,36 +49,36 @@
                 <tr style="text-align: center;">
                     <td>Hobbies: </td>
                     <td>
-                        <input type="checkbox" name="reading" value="Reading">Reading
-                        <input type="checkbox" name="playing" value="Playing">Playing
-                        <input type="checkbox" name="dancing" value="Dancing">Dancing
+                        <input type="checkbox" name="hobbies[]" value="Reading">Reading
+                        <input type="checkbox" name="hobbies[]" value="Playing">Playing
+                        <input type="checkbox" name="hobbies[]" value="Dancing">Dancing
                     </td>
                 </tr>
 
                 <tr style="text-align: center;">
                     <td>DOB: </td>
-                    <td><input style="width: 97%" type="text" name="date" required></td>
+                    <td><input style="width: 97%;" type="text" name="date" placeholder="DD-MM-YYYY" required></td>
                 </tr>
 
                 <tr style="text-align: center;">
                     <td>Contact: </td>
-                    <td><input style="width: 97%" type="text" name="contact" required></td>
+                    <td><input style="width: 97%;" type="text" name="contact" required></td>
                 </tr>
 
                 <tr style="text-align: center;">
                     <td>Email: </td>
-                    <td><input style="width: 97%" type="email" name="email" required></td>
+                    <td><input style="width: 97%;" type="email" name="email" required></td>
                 </tr>
 
                 <tr style="text-align: center;">
                     <td>Password: </td>
-                    <td><input style="width: 97%" type="password" name="" required></td>
+                    <td><input style="width: 97%;" type="password" name="password" required></td>
                 </tr>
 
                 <tr style="text-align: center;">
                     <td colspan="2">
                         <button style="padding: 3px 10px; cursor: pointer;" type="submit" name="submitBtn">Submit</button>
-                        <button style="padding: 3px 10px; cursor: pointer;" type="submit" name="resetBtn">Reset</button>
+                        <button style="padding: 3px 10px; cursor: pointer;" type="reset">Reset</button>
                     </td>
                 </tr>
 
