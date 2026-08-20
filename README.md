@@ -13,6 +13,9 @@ wfs-practical/
 │
 ├── README.md
 │
+├── class-object/
+│   └── class_object.php
+│
 ├── cookie/
 │   ├── login.php
 │   └── view.php
@@ -45,6 +48,7 @@ wfs-practical/
 | Cookie Management                      | ✅ Completed |
 | File Handling / File Upload & Download | ✅ Completed |
 | Form Handling & Validation             | ✅ Completed |
+| Class & Object                         | ✅ Completed |
 | Database Connectivity                  |  ⏳ Upcoming |
 | Authentication                         |  ⏳ Upcoming |
 | AJAX                                   |  ⏳ Upcoming |
@@ -135,6 +139,25 @@ wfs-practical/
 
 ---
 
+### ✅ 5. Class & Object
+
+**Folder:** `class-object/`
+
+**File:**
+
+* `class_object.php`
+
+**Concepts Practiced:**
+
+* Creating classes in PHP
+* Creating objects
+* Defining properties
+* Defining methods
+* Accessing class members
+* Basic Object-Oriented Programming (OOP) concepts
+
+---
+
 ## 🛠️ Tech Stack
 
 * PHP
@@ -183,6 +206,8 @@ http://localhost/wfs-practical/file/
 http://localhost/wfs-practical/form/
 ```
 
+> The `class-object` practical can be executed directly through the PHP environment or from the appropriate local URL.
+
 ---
 
 ## 🎯 Purpose
@@ -192,6 +217,7 @@ This repository is maintained for:
 * College WFS laboratory practicals
 * Practicing PHP concepts
 * Understanding Web Framework and Services concepts
+* Learning PHP Object-Oriented Programming
 * Maintaining practical work topic-wise
 * Revision and future reference
 * Tracking practical progress throughout the semester
