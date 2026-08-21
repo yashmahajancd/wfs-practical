@@ -1,6 +1,6 @@
 # 🌐 WFS (Web Framework and Services) Practical
 
-A collection of **Web Framework and Services (WFS)** practical programs completed during college lab sessions.
+A collection of **Web Framework and Services (WFS) practical programs** completed during college lab sessions.
 
 Each practical is organized into a separate topic-wise folder to keep the repository clean, structured, and easy to navigate throughout the semester.
 
@@ -19,6 +19,10 @@ wfs-practical/
 ├── cookie/
 │   ├── login.php
 │   └── view.php
+│
+├── email/
+│   ├── mail.php
+│   └── README.MD
 │
 ├── file/
 │   ├── file.php
@@ -49,6 +53,7 @@ wfs-practical/
 | File Handling / File Upload & Download | ✅ Completed |
 | Form Handling & Validation             | ✅ Completed |
 | Class & Object                         | ✅ Completed |
+| Email Handling                         | ✅ Completed |
 | Database Connectivity                  |  ⏳ Upcoming |
 | Authentication                         |  ⏳ Upcoming |
 | AJAX                                   |  ⏳ Upcoming |
@@ -158,6 +163,25 @@ wfs-practical/
 
 ---
 
+### ✅ 6. Email Handling
+
+**Folder:** `email/`
+
+**Files:**
+
+* `mail.php`
+* `README.MD`
+
+**Concepts Practiced:**
+
+* Sending emails using PHP
+* Using PHP's `mail()` function
+* Configuring email-related settings
+* Working with email headers
+* Handling email sending success and failure
+
+---
+
 ## 🛠️ Tech Stack
 
 * PHP
@@ -206,7 +230,15 @@ http://localhost/wfs-practical/file/
 http://localhost/wfs-practical/form/
 ```
 
-> The `class-object` practical can be executed directly through the PHP environment or from the appropriate local URL.
+```text
+http://localhost/wfs-practical/class-object/
+```
+
+```text
+http://localhost/wfs-practical/email/
+```
+
+> Some practicals may require additional configuration depending on the concept being demonstrated.
 
 ---
 
@@ -218,6 +250,7 @@ This repository is maintained for:
 * Practicing PHP concepts
 * Understanding Web Framework and Services concepts
 * Learning PHP Object-Oriented Programming
+* Practicing web-based functionalities
 * Maintaining practical work topic-wise
 * Revision and future reference
 * Tracking practical progress throughout the semester
