@@ -34,6 +34,14 @@ wfs-practical/
 │   ├── index.php
 │   └── valid.php
 │
+├── functions/
+│   ├── array_functions.php
+│   ├── array_sorting_functions.php
+│   ├── date_functions.php
+│   ├── math_functions.php
+│   ├── string_functions.php
+│   └── user_define_functions.php
+│
 └── session/
     ├── login.php
     ├── session-login.php
@@ -54,6 +62,7 @@ wfs-practical/
 | Form Handling & Validation             | ✅ Completed |
 | Class & Object                         | ✅ Completed |
 | Email Handling                         | ✅ Completed |
+| PHP Functions                          | ✅ Completed |
 | Database Connectivity                  |  ⏳ Upcoming |
 | Authentication                         |  ⏳ Upcoming |
 | AJAX                                   |  ⏳ Upcoming |
@@ -176,9 +185,35 @@ wfs-practical/
 
 * Sending emails using PHP
 * Using PHP's `mail()` function
-* Configuring email-related settings
 * Working with email headers
+* Configuring email-related settings
 * Handling email sending success and failure
+
+---
+
+### ✅ 7. PHP Functions
+
+**Folder:** `functions/`
+
+**Files:**
+
+* `array_functions.php`
+* `array_sorting_functions.php`
+* `date_functions.php`
+* `math_functions.php`
+* `string_functions.php`
+* `user_define_functions.php`
+
+**Concepts Practiced:**
+
+* Built-in PHP functions
+* Array functions
+* Array sorting functions
+* Date and time functions
+* Mathematical functions
+* String manipulation functions
+* User-defined functions
+* Function parameters and return values
 
 ---
 
@@ -212,7 +247,7 @@ http://localhost/wfs-practical/
 
 6. Navigate to the required practical folder.
 
-For example:
+Examples:
 
 ```text
 http://localhost/wfs-practical/session/
@@ -236,6 +271,10 @@ http://localhost/wfs-practical/class-object/
 
 ```text
 http://localhost/wfs-practical/email/
+```
+
+```text
+http://localhost/wfs-practical/functions/
 ```
 
 > Some practicals may require additional configuration depending on the concept being demonstrated.
