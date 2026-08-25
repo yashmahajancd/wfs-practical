@@ -1,3 +1,39 @@
+<?php
+
+include('connect.php');
+
+if(isset($_POST['btninsert']))
+{
+    $name = $_POST['txtcarname'];
+    $model = $_POST['txtmodelname'];
+    $year = $_POST['selyear'];
+    $price = $_POST['txtcarprice'];
+
+    $insert = "INSERT INTO car_table (name, model, year, price) VALUES ('$name', '$model', '$year', '$price')";
+
+    mysqli_query($con, $insert);
+
+    header('location:index.php');
+}
+
+if(isset($_POST['btnupdate']))
+{
+    $carid = $_POST['txtcarid'];
+    $name = $_POST['txtcarname'];
+    $model = $_POST['txtmodelname'];
+    $year = $_POST['selyear'];
+    $price = $_POST['txtcarprice'];
+
+    $update = "UPDATE car_table SET name='$name', model='$model', year='$year', price='$price' WHERE carid=$_GET[editid]";
+
+    mysqli_query($con, $update);
+
+    header('location:index.php');
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -15,23 +51,23 @@
             <table border="2" cellpadding="8px" cellspacing="0px">
                 <tr>
                     <td>Enter Car ID : </td>
-                    <td><input type="number" name="txtcarid" value="" placeholder="Enter Car Id" required></td>
+                    <td><input style="padding: 3px 5px;" type="number" name="txtcarid" value="" placeholder="Enter Car Id" required></td>
                 </tr>
 
                 <tr>
                     <td>Enter Car Name : </td>
-                    <td><input type="text" name="txtcarname" value="" placeholder="Enter Car Name" required></td>
+                    <td><input style="padding: 3px 5px;" type="text" name="txtcarname" value="" placeholder="Enter Car Name" required></td>
                 </tr>
 
                 <tr>
                     <td>Enter Model Name : </td>
-                    <td><input type="text" name="txtmodelname" value="" placeholder="Enter Model Name" required></td>
+                    <td><input style="padding: 3px 5px;" type="text" name="txtmodelname" value="" placeholder="Enter Model Name" required></td>
                 </tr>
 
                 <tr>
                     <td>Enter Car Year : </td>
                     <td>
-                        <select name="selyear">
+                        <select style="padding: 3px 5px;" name="selyear">
                             <option value="">--Select Year--</option>
                             //
                         </select>
@@ -40,7 +76,7 @@
 
                 <tr>
                     <td>Enter Car Price : </td>
-                    <td><input type="number" name="txtcarprice" value="" placeholder="Enter Car Price" required></td>
+                    <td><input style="padding: 3px 5px;" type="number" name="txtcarprice" value="" placeholder="Enter Car Price" required></td>
                 </tr>
 
                 <tr>
@@ -48,6 +84,19 @@
                         <button style="padding: 2px 8px; cursor: pointer;" type="submit" name="btnupdate">Update</button>
                         <button style="padding: 2px 8px; cursor: pointer;" type="submit" name="btninsert">Insert</button>
                     </td>
+                </tr>
+            </table>
+
+            <br><br>
+
+            <table border="3" cellspacing="0px">
+                <tr>
+                    <th style="padding: 8px 15px;">CarId</th>
+                    <th style="padding: 8px 15px;">CarName</th>
+                    <th style="padding: 8px 15px;">ModelName</th>
+                    <th style="padding: 8px 15px;">CarYear</th>
+                    <th style="padding: 8px 15px;">CarPrice</th>
+                    <th style="padding: 8px 15px;">Action</th>
                 </tr>
             </table>
         </form>
