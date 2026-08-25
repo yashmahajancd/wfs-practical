@@ -31,6 +31,20 @@ if(isset($_POST['btnupdate']))
     header('location:index.php');
 }
 
+if(isset($_GET['editid']))
+{
+    $select = "SELECT * FROM car_table WHERE carid=$_GET[editid]";
+    $result = mysqli_query($con, $select);
+    $row = mysqli_fetch_array($result);
+}
+
+if(isset($_GET['delid']))
+{
+    $delete = "DELETE FROM car_table WHERE carid=$_GET[delid]";
+    mysqli_query($con, $delete);
+    header('location:index.php');
+}
+
 ?>
 
 
