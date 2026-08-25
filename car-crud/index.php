@@ -65,17 +65,17 @@ if(isset($_GET['delid']))
             <table border="2" cellpadding="8px" cellspacing="0px">
                 <tr>
                     <td>Enter Car ID : </td>
-                    <td><input style="padding: 3px 5px;" type="number" name="txtcarid" value="" placeholder="Enter Car Id" required></td>
+                    <td><input style="padding: 3px 5px;" type="number" name="txtcarid" value="<?php if(isset($_GET['editid'])) echo $row['carid']; ?>" placeholder="Enter Car Id" required></td>
                 </tr>
 
                 <tr>
                     <td>Enter Car Name : </td>
-                    <td><input style="padding: 3px 5px;" type="text" name="txtcarname" value="" placeholder="Enter Car Name" required></td>
+                    <td><input style="padding: 3px 5px;" type="text" name="txtcarname" value="<?php if(isset($_GET['editid'])) echo $row['name']; ?>" placeholder="Enter Car Name" required></td>
                 </tr>
 
                 <tr>
                     <td>Enter Model Name : </td>
-                    <td><input style="padding: 3px 5px;" type="text" name="txtmodelname" value="" placeholder="Enter Model Name" required></td>
+                    <td><input style="padding: 3px 5px;" type="text" name="txtmodelname" value="<?php if(isset($_GET['editid'])) echo $row['model']; ?>" placeholder="Enter Model Name" required></td>
                 </tr>
 
                 <tr>
@@ -83,20 +83,28 @@ if(isset($_GET['delid']))
                     <td>
                         <select style="padding: 3px 5px;" name="selyear">
                             <option value="">--Select Year--</option>
-                            //
+                            <?php
+                                for($i = 1990; $i <= 2024; $i++)
+                                {
+                                    echo "<option value='$i'>$i</option>";
+                                }
+                            ?>
                         </select>
                     </td>
                 </tr>
 
                 <tr>
                     <td>Enter Car Price : </td>
-                    <td><input style="padding: 3px 5px;" type="number" name="txtcarprice" value="" placeholder="Enter Car Price" required></td>
+                    <td><input style="padding: 3px 5px;" type="number" name="txtcarprice" value="<?php if(isset($_GET['editid'])) echo $row['price']; ?>" placeholder="Enter Car Price" required></td>
                 </tr>
 
                 <tr>
                     <td colspan="2">
+                        <?php if(isset($_GET['editid'])) { ?>
                         <button style="padding: 2px 8px; cursor: pointer;" type="submit" name="btnupdate">Update</button>
+                        <?php } else { ?>
                         <button style="padding: 2px 8px; cursor: pointer;" type="submit" name="btninsert">Insert</button>
+                        <?php } ?>
                     </td>
                 </tr>
             </table>
