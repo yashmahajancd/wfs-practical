@@ -2,33 +2,83 @@
 
 include('connect.php');
 
+// INSERT CAR
 if(isset($_POST['btninsert']))
 {
-    $name = $_POST['txtcarname'];
-    $model = $_POST['txtmodelname'];
+    $name = trim($_POST['txtcarname']);
+    $model = trim($_POST['txtmodelname']);
     $year = $_POST['selyear'];
     $price = $_POST['txtcarprice'];
 
-    $insert = "INSERT INTO car_table (name, model, year, price) VALUES ('$name', '$model', '$year', '$price')";
+    if(empty($name) || empty($model) || empty($year) || $price === '')
+    {
+        header("Location: index.php?msg=empty");
+        exit();
+    }
+    elseif(!is_numeric($year) || !is_numeric($price) || $price < 0)
+    {
+        header("Location: index.php?msg=invalid");
+        exit();
+    }
+    else
+    {
+        $insert = "INSERT INTO car_table (name, model, year, price) VALUES (?, ?, ?, ?)";
 
-    mysqli_query($con, $insert);
+        $stmt = mysqli_prepare($con, $insert);
 
-    header('location:index.php');
+        mysqli_stmt_bind_param($stmt, "ssii", $name, $model, $year, $price);
+
+        if(mysqli_stmt_execute($stmt))
+        {
+            header("Location: index.php?msg=inserted");
+            exit();
+        }
+        else
+        {
+            header("Location: index.php?msg=error");
+            exit();
+        }
+    }
 }
 
+// UPDATE CAR
 if(isset($_POST['btnupdate']))
 {
     $carid = $_POST['txtcarid'];
-    $name = $_POST['txtcarname'];
-    $model = $_POST['txtmodelname'];
+    $name = trim($_POST['txtcarname']);
+    $model = trim($_POST['txtmodelname']);
     $year = $_POST['selyear'];
     $price = $_POST['txtcarprice'];
 
-    $update = "UPDATE car_table SET name='$name', model='$model', year='$year', price='$price' WHERE carid=$_GET[editid]";
+    if(empty($carid) || empty($name) || empty($model) || empty($year) || $price === '')
+    {
+        header("Location: index.php?msg=empty");
+        exit();
+    }
+    elseif(!is_numeric($carid) || !is_numeric($year) || !is_numeric($price) || $price < 0)
+    {
+        header("Location: index.php?msg=invalid");
+        exit();
+    }
+    else
+    {
+        $update = "UPDATE car_table SET name=?, model=?, year=?, price=? WHERE carid=?";
 
-    mysqli_query($con, $update);
+        $stmt = mysqli_prepare($con, $update);
 
-    header('location:index.php');
+        mysqli_stmt_bind_param($stmt, "ssiii", $name, $model, $year, $price, $carid);
+
+        if(mysqli_stmt_execute($stmt))
+        {
+            header("Location: index.php?msg=updated");
+            exit();
+        }
+        else
+        {
+            header("Location: index.php?msg=error");
+            exit();
+        }
+    }
 }
 
 if(isset($_GET['editid']))
@@ -120,6 +170,24 @@ if(isset($_GET['delid']))
                     <th style="padding: 8px 15px;">CarPrice</th>
                     <th style="padding: 8px 15px;">Action</th>
                 </tr>
+                <?php
+                
+                $select = "SELECT * FROM car_table ORDER BY carid DESC";
+                $result = mysqli_query($con, $select);
+
+                while($row=mysqli_fetch_array($result))
+                {
+                    echo "<tr>";
+                    echo "<td>" . $row['carid'] . "</td>";
+                    echo "<td>" . $row['name'] . "</td>";
+                    echo "<td>" . $row['model'] . "</td>";
+                    echo "<td>" . $row['year'] . "</td>";
+                    echo "<td>" . $row['price'] . "</td>";
+                    echo "<td><a href='index.php?editid=" . $row['carid'] . "'>Edit</a><a href='index.php?delid=" . $row['carid'] . "'>Delete</a></td>";
+                    echo "</tr>";
+                }
+                
+                ?>
             </table>
         </form>
     </center>
