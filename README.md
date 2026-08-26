@@ -13,6 +13,11 @@ wfs-practical/
 │
 ├── README.md
 │
+├── car-crud/
+│   ├── connect.php
+│   ├── index.php
+│   └── README.md
+│
 ├── class-object/
 │   └── class_object.php
 │
@@ -63,7 +68,7 @@ wfs-practical/
 | Class & Object                         | ✅ Completed |
 | Email Handling                         | ✅ Completed |
 | PHP Functions                          | ✅ Completed |
-| Database Connectivity                  |  ⏳ Upcoming |
+| Database Connectivity & CRUD           | ✅ Completed |
 | Authentication                         |  ⏳ Upcoming |
 | AJAX                                   |  ⏳ Upcoming |
 | REST API                               |  ⏳ Upcoming |
@@ -217,6 +222,30 @@ wfs-practical/
 
 ---
 
+### ✅ 8. Database Connectivity & CRUD
+
+**Folder:** `car-crud/`
+
+**Files:**
+
+* `connect.php`
+* `index.php`
+* `README.md`
+
+**Concepts Practiced:**
+
+* Connecting PHP with a database
+* Database configuration
+* CRUD operations
+* Creating records
+* Reading records
+* Updating records
+* Deleting records
+* Displaying database records
+* Basic database-driven PHP application
+
+---
+
 ## 🛠️ Tech Stack
 
 * PHP
@@ -237,8 +266,8 @@ wfs-practical/
 C:\xampp\htdocs\
 ```
 
-3. Start **Apache** from the XAMPP Control Panel.
-4. Start **MySQL** if the practical requires database connectivity.
+3. Start **Apache** and **MySQL** from the XAMPP Control Panel.
+4. Make sure the required database is created and configured for database-related practicals.
 5. Open the project in your browser:
 
 ```text
@@ -277,6 +306,10 @@ http://localhost/wfs-practical/email/
 http://localhost/wfs-practical/functions/
 ```
 
+```text
+http://localhost/wfs-practical/car-crud/
+```
+
 > Some practicals may require additional configuration depending on the concept being demonstrated.
 
 ---
@@ -289,6 +322,7 @@ This repository is maintained for:
 * Practicing PHP concepts
 * Understanding Web Framework and Services concepts
 * Learning PHP Object-Oriented Programming
+* Practicing database connectivity and CRUD operations
 * Practicing web-based functionalities
 * Maintaining practical work topic-wise
 * Revision and future reference
