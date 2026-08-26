@@ -303,20 +303,21 @@ if(isset($_GET['editid']))
             ?>
 
             <tr>
-                <td><?php echo htmlspecialchars($car['carid']); ?></td>
-                <td><?php echo htmlspecialchars($car['name']); ?></td>
-                <td><?php echo htmlspecialchars($car['model']); ?></td>
-                <td><?php echo htmlspecialchars($car['year']); ?></td>
-                <td><?php echo htmlspecialchars($car['price']); ?></td>
-                <td>
+                <td style="text-align: center; padding: 8px 15px;"><?php echo htmlspecialchars($car['carid']); ?></td>
+                <td style="text-align: center; padding: 8px 15px;"><?php echo htmlspecialchars($car['name']); ?></td>
+                <td style="text-align: center; padding: 8px 15px;"><?php echo htmlspecialchars($car['model']); ?></td>
+                <td style="text-align: center; padding: 8px 15px;"><?php echo htmlspecialchars($car['year']); ?></td>
+                <td style="text-align: center; padding: 8px 15px;"><?php echo htmlspecialchars($car['price']); ?></td>
+                <td style="text-align: center; padding: 8px 15px;">
                     <!-- EDIT -->
-                    <a href="index.php?editid=<?php echo $car['carid']; ?>">Edit</a>
-                    &nbsp; | &nbsp;
+                    <a style="font-size: 15px; text-decoration: none;" href="index.php?editid=<?php echo $car['carid']; ?>">EDIT</a>
+                    <!-- &nbsp; | &nbsp; -->
+                    |
 
                     <!-- DELETE -->
                     <form method="POST" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete this car?');">
                         <input type="hidden" name="carid" value="<?php echo $car['carid']; ?>">
-                        <button style="border: none; background: none; color: red; cursor: pointer; padding: 0;" type="submit" name="btndelete">Delete</button>
+                        <button style="border: none; background: none; color: red; cursor: pointer; padding: 0;" type="submit" name="btndelete">DELETE</button>
                     </form>
                 </td>
             </tr>
