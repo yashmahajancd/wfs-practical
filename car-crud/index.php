@@ -81,18 +81,62 @@ if(isset($_POST['btnupdate']))
     }
 }
 
-if(isset($_GET['editid']))
+// DELETE CAR
+if(isset($_GET['btndelete']))
 {
-    $select = "SELECT * FROM car_table WHERE carid=$_GET[editid]";
-    $result = mysqli_query($con, $select);
-    $row = mysqli_fetch_array($result);
+    $carid = $_POST['carid'];
+
+    if(is_numeric($carid))
+    {
+        $delete = "DELETE FROM car_table WHERE carid = ?";
+
+        $stmt = mysqli_prepare($con, $delete);
+
+        mysqli_stmt_bind_param($stmt, "i", $carid);
+
+        if(mysqli_stmt_execute($stmt))
+        {
+            header("Location: index.php?msg=deleted");
+            exit();
+        }
+        else
+        {
+            header("Location: index.php?msg=error");
+            exit();
+        }
+    }
 }
 
-if(isset($_GET['delid']))
+
+// EDIT CAR
+$editRow = null;
+
+if(isset($_GET['editid']))
 {
-    $delete = "DELETE FROM car_table WHERE carid=$_GET[delid]";
-    mysqli_query($con, $delete);
-    header('location:index.php');
+    $editid = $_GET['editid'];
+
+    if(is_numeric($editid))
+    {
+        $selectEdit = "SELECT * FROM car_table WHERE carid = ?";
+
+        $stmt = mysqli_prepare($con, $selectEdit);
+
+        mysqli_stmt_bind_param($stmt, "i", $editid);
+
+        mysqli_stmt_execute($stmt);
+
+        $result = mysqli_stmt_get_result($stmt);
+
+        if(mysqli_num_rows($result) > 0)
+        {
+            $editRow = mysqli_fetch_assoc($result);
+        }
+        else
+        {
+            header("Location: index.php?msg=notfound");
+            exit();
+        }
+    }
 }
 
 ?>
@@ -104,7 +148,7 @@ if(isset($_GET['delid']))
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Car Crud Operation</title>
+    <title>CAR CRUD</title>
 </head>
 
 <body style="font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;">
