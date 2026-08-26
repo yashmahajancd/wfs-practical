@@ -155,85 +155,161 @@ if(isset($_GET['editid']))
     <center>
         <h2 style="padding: 10px 5px;  background-color: #bdbdbd;">-- Car Crud Operation --</h2>
 
-        <form action="" method="POST" name="form1">
-            <table border="2" cellpadding="8px" cellspacing="0px">
-                <tr>
-                    <td>Enter Car ID : </td>
-                    <td><input style="padding: 3px 5px;" type="number" name="txtcarid" value="<?php if(isset($_GET['editid'])) echo $row['carid']; ?>" placeholder="Enter Car Id" required></td>
-                </tr>
+        // SUCCESS / ERROR MESSAGE
+        <?php
+        
+        if(isset($_GET['msg']))
+        {
+            if($_GET['msg'] == 'inserted')
+            {
+                echo "<p style='color: green;'>Car Inserted Successfully!</p>";
+            }
 
+            if($_GET['msg'] == 'updated')
+            {
+                echo "<p style='color: blue;'>Car Updated Successfully!</p>";
+            }
+
+            if($_GET['msg'] == 'deleted')
+            {
+                echo "<p style='color: red;'>Car Deleted Successfully!</p>";
+            }
+
+            if($_GET['msg'] == 'empty')
+            {
+                echo "<p style='color: red;'>All Fields Are Required!</p>";
+            }
+
+            if($_GET['msg'] == 'invalid')
+            {
+                echo "<p style='color: red;'>Invalid Data Entered!</p>";
+            }
+
+            if($_GET['msg'] == 'notfound')
+            {
+                echo "<p style='color: red;'>Car Record Not Found!</p>";
+            }
+
+            if($_GET['msg'] == 'error')
+            {
+                echo "<p style='color: red;'>Something Went Wrong!</p>";
+            }
+        }
+        
+        ?>
+
+        // INSERT / UPDATE FORM
+        <form action="" method="POST">
+
+            <?php if($editRow != null) { ?>
+
+            <input type="hidden" name="txtcarid" value="<?php echo htmlspecialchars($editRow['carid']); ?>">
+
+            <?php } ?>
+
+            <table border="2" cellpadding="8px" cellspacing="0px">
+
+                <?php if($editRow != null) { ?>
+                <tr>
+                    <td>Car ID : </td>
+                    <td><input style="padding: 3px 5px;" type="number" name="txtcarid" value="<?php echo htmlspecialchars($editRow['carid']); ?>" readonly></td>
+                </tr>
+                <?php } ?>
+
+                <!-- CAR NAME -->
                 <tr>
                     <td>Enter Car Name : </td>
-                    <td><input style="padding: 3px 5px;" type="text" name="txtcarname" value="<?php if(isset($_GET['editid'])) echo $row['name']; ?>" placeholder="Enter Car Name" required></td>
+                    <td><input style="padding: 3px 5px;" type="text" name="txtcarname" value="<?php if($editRow != null) { echo htmlspecialchars($editRow['name']); } ?>" placeholder="Enter Car Name" required></td>
                 </tr>
 
+                <!-- MODEL NAME -->
                 <tr>
                     <td>Enter Model Name : </td>
-                    <td><input style="padding: 3px 5px;" type="text" name="txtmodelname" value="<?php if(isset($_GET['editid'])) echo $row['model']; ?>" placeholder="Enter Model Name" required></td>
+                    <td><input style="padding: 3px 5px;" type="text" name="txtmodelname" value="<?php if($editRow != null) { echo htmlspecialchars($editRow['model']); } ?>" placeholder="Enter Model Name" required></td>
                 </tr>
 
+                <!-- CAR YEAR -->
                 <tr>
                     <td>Enter Car Year : </td>
                     <td>
-                        <select style="padding: 3px 5px;" name="selyear">
-                            <option value="">--Select Year--</option>
+                        <select style="padding: 3px 5px;" name="selyear" required>
+                            <option value="">-- Select Year --</option>
+
                             <?php
-                                for($i = 1990; $i <= 2024; $i++)
+
+                            for($i = 1990; $i <= date('Y'); $i++)
+                            {
+                                $selected = "";
+
+                                if($editRow != null && $editRow['year'] == $i)
                                 {
-                                    echo "<option value='$i'>$i</option>";
+                                    $selected = "selected";
                                 }
+                                else
+                                {
+                                    echo "<option value='$i' $selected>$i</option>";
+                                }
+                            }
+
                             ?>
                         </select>
                     </td>
                 </tr>
 
+                <!-- CAR PRICE -->
                 <tr>
                     <td>Enter Car Price : </td>
-                    <td><input style="padding: 3px 5px;" type="number" name="txtcarprice" value="<?php if(isset($_GET['editid'])) echo $row['price']; ?>" placeholder="Enter Car Price" required></td>
+                    <td><input style="padding: 3px 5px;" type="number" name="txtcarprice" value="<?php if($editRow != null) { echo htmlspecialchars($editRow['price']); } ?>" placeholder="Enter Car Price" min="0" required></td>
                 </tr>
 
+                <!-- BUTTON -->
                 <tr>
-                    <td colspan="2">
-                        <?php if(isset($_GET['editid'])) { ?>
-                        <button style="padding: 2px 8px; cursor: pointer;" type="submit" name="btnupdate">Update</button>
+                    <td colspan="2" align="center">
+                        <?php if($editRow != null) { ?>
+                        <button style="padding: 5px 15px; cursor: pointer;" type="submit" name="btnupdate">Update</button>
+                        <a href="index.php" style="margin-left: 10px; text-decoration: none;">Cancel</a>
                         <?php } else { ?>
-                        <button style="padding: 2px 8px; cursor: pointer;" type="submit" name="btninsert">Insert</button>
+                        <button style="padding: 5px 15px; cursor: pointer;" type="submit" name="btninsert">Insert</button>
                         <?php } ?>
                     </td>
                 </tr>
+                
             </table>
 
-            <br><br>
-
-            <table border="3" cellspacing="0px">
-                <tr>
-                    <th style="padding: 8px 15px;">CarId</th>
-                    <th style="padding: 8px 15px;">CarName</th>
-                    <th style="padding: 8px 15px;">ModelName</th>
-                    <th style="padding: 8px 15px;">CarYear</th>
-                    <th style="padding: 8px 15px;">CarPrice</th>
-                    <th style="padding: 8px 15px;">Action</th>
-                </tr>
-                <?php
-                
-                $select = "SELECT * FROM car_table ORDER BY carid DESC";
-                $result = mysqli_query($con, $select);
-
-                while($row=mysqli_fetch_array($result))
-                {
-                    echo "<tr>";
-                    echo "<td>" . $row['carid'] . "</td>";
-                    echo "<td>" . $row['name'] . "</td>";
-                    echo "<td>" . $row['model'] . "</td>";
-                    echo "<td>" . $row['year'] . "</td>";
-                    echo "<td>" . $row['price'] . "</td>";
-                    echo "<td><a href='index.php?editid=" . $row['carid'] . "'>Edit</a><a href='index.php?delid=" . $row['carid'] . "'>Delete</a></td>";
-                    echo "</tr>";
-                }
-                
-                ?>
-            </table>
         </form>
+
+        <br><br>
+
+        // CAR LIST
+        <table border="3" cellspacing="0px">
+            <tr>
+                <th style="padding: 8px 15px;">CarId</th>
+                <th style="padding: 8px 15px;">CarName</th>
+                <th style="padding: 8px 15px;">ModelName</th>
+                <th style="padding: 8px 15px;">CarYear</th>
+                <th style="padding: 8px 15px;">CarPrice</th>
+                <th style="padding: 8px 15px;">Action</th>
+            </tr>
+
+            <?php
+                
+            $select = "SELECT * FROM car_table ORDER BY carid DESC";
+            $result = mysqli_query($con, $select);
+
+            while($row=mysqli_fetch_array($result))
+            {
+                echo "<tr>";
+                echo "<td>" . $row['carid'] . "</td>";
+                echo "<td>" . $row['name'] . "</td>";
+                echo "<td>" . $row['model'] . "</td>";
+                echo "<td>" . $row['year'] . "</td>";
+                echo "<td>" . $row['price'] . "</td>";
+                echo "<td><a href='index.php?editid=" . $row['carid'] . "'>Edit</a><a href='index.php?delid=" . $row['carid'] . "'>Delete</a></td>";
+                echo "</tr>";
+            }
+                
+            ?>
+        </table>
     </center>
 </body>
 
