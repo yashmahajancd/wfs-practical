@@ -1,6 +1,6 @@
 <?php
 
-$con = mysqli_connect("localhost", "root", "", "car_db");
+$con = mysqli_connect("localhost", "root", "", "car_db", 3307);
 
 if(!$con)
 {

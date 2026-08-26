@@ -82,7 +82,7 @@ if(isset($_POST['btnupdate']))
 }
 
 // DELETE CAR
-if(isset($_GET['btndelete']))
+if(isset($_POST['btndelete']))
 {
     $carid = $_POST['carid'];
 
@@ -155,7 +155,7 @@ if(isset($_GET['editid']))
     <center>
         <h2 style="padding: 10px 5px;  background-color: #bdbdbd;">-- Car Crud Operation --</h2>
 
-        // SUCCESS / ERROR MESSAGE
+        <!-- SUCCESS / ERROR MESSAGE -->
         <?php
         
         if(isset($_GET['msg']))
@@ -198,7 +198,7 @@ if(isset($_GET['editid']))
         
         ?>
 
-        // INSERT / UPDATE FORM
+        <!-- INSERT / UPDATE FORM -->
         <form action="" method="POST">
 
             <?php if($editRow != null) { ?>
@@ -245,10 +245,8 @@ if(isset($_GET['editid']))
                                 {
                                     $selected = "selected";
                                 }
-                                else
-                                {
-                                    echo "<option value='$i' $selected>$i</option>";
-                                }
+                                
+                                echo "<option value='$i' $selected>$i</option>";
                             }
 
                             ?>
@@ -273,14 +271,14 @@ if(isset($_GET['editid']))
                         <?php } ?>
                     </td>
                 </tr>
-                
+
             </table>
 
         </form>
 
         <br><br>
 
-        // CAR LIST
+        <!-- CAR LIST -->
         <table border="3" cellspacing="0px">
             <tr>
                 <th style="padding: 8px 15px;">CarId</th>
@@ -293,21 +291,53 @@ if(isset($_GET['editid']))
 
             <?php
                 
-            $select = "SELECT * FROM car_table ORDER BY carid DESC";
-            $result = mysqli_query($con, $select);
+            $selectCars = "SELECT * FROM car_table ORDER BY carid DESC";
 
-            while($row=mysqli_fetch_array($result))
+            $resultCars = mysqli_query($con, $selectCars);
+
+            if(mysqli_num_rows($resultCars) > 0)
             {
-                echo "<tr>";
-                echo "<td>" . $row['carid'] . "</td>";
-                echo "<td>" . $row['name'] . "</td>";
-                echo "<td>" . $row['model'] . "</td>";
-                echo "<td>" . $row['year'] . "</td>";
-                echo "<td>" . $row['price'] . "</td>";
-                echo "<td><a href='index.php?editid=" . $row['carid'] . "'>Edit</a><a href='index.php?delid=" . $row['carid'] . "'>Delete</a></td>";
-                echo "</tr>";
-            }
+                while($car = mysqli_fetch_assoc($resultCars))
+                {
                 
+            ?>
+
+            <tr>
+                <td><?php echo htmlspecialchars($car['carid']); ?></td>
+                <td><?php echo htmlspecialchars($car['name']); ?></td>
+                <td><?php echo htmlspecialchars($car['model']); ?></td>
+                <td><?php echo htmlspecialchars($car['year']); ?></td>
+                <td><?php echo htmlspecialchars($car['price']); ?></td>
+                <td>
+                    <!-- EDIT -->
+                    <a href="index.php?editid=<?php echo $car['carid']; ?>">Edit</a>
+                    &nbsp; | &nbsp;
+
+                    <!-- DELETE -->
+                    <form method="POST" style="display: inline;" onsubmit="return confirm('Are you sure you want to delete this car?');">
+                        <input type="hidden" name="carid" value="<?php echo $car['carid']; ?>">
+                        <button style="border: none; background: none; color: red; cursor: pointer; padding: 0;" type="submit" name="btndelete">Delete</button>
+                    </form>
+                </td>
+            </tr>
+
+            <?php
+            
+                }
+            }
+            else
+            {
+            
+            ?>
+
+            <tr>
+                <td colspan="6" align="center">No Car Records Found</td>
+            </tr>
+
+            <?php
+            
+            }
+            
             ?>
         </table>
     </center>
